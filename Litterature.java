@@ -7,27 +7,68 @@
  */
 public class Litterature
 {
-    // instance variables - replace the example below with your own
-    private int x;
+    private final String name;
+    private final String date;
+    private final int numberOfPages;
+    private double price;
 
     /**
      * Constructor for objects of class Litterature
+     * @param name The litterature name.
+     * @param dateAndYear Date and year published.
+     * @param numberOfPages Number of pages in the newspaper.
      */
-    public Litterature()
+    public Litterature(String name, String date, int numberOfPages)
     {
-        // initialise instance variables
-        x = 0;
+        this.name = name;
+        this.date = date;
+        this.numberOfPages = numberOfPages;
+        this.price = 0;
+    }
+
+    public void setPrice(double newPrice)
+    {
+        this.price = newPrice;
+    }
+    
+    /**
+     * Returns the name.
+     * @returns name The name of the Litterature.
+     */
+    public String getName()
+    {
+        return this.name;
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * Return date.
+     * @return date The Litterature date.
      */
-    public int sampleMethod(int y)
+    public String getDate()
     {
-        // put your code here
-        return x + y;
+        return this.date;
+    }
+
+    /**
+     * Return number of pages of the Litterature.
+     * @return numberOfPages The number of pages.
+     */
+    public int getNumberOfPages()
+    {
+        return this.numberOfPages;
+    }
+
+    public String getInfoAsString()
+    {
+        return getName() + getIssueNumber() + getDate() + getNumberOfPages();
+    }
+
+    public String toString()
+    {
+        String returnString = name;
+        returnString += "\nIssuenumber: " + issueNumber;
+        returnString += "\nDate: " + date;
+        returnString += "\nPages: " + numberOfPages;
+        return returnString;
     }
 }

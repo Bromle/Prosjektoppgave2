@@ -11,7 +11,7 @@ import java.util.ArrayList;
  */
 public class UserInterface
 {
-    private NewspaperOrganizer newspaperOrganizer;
+    private LitteratureOrganizer newspaperOrganizer;
     private String[] menuItems = {
             "1. List all newspapers",
             "2. Add new newspaper",
@@ -21,7 +21,7 @@ public class UserInterface
 
     public UserInterface()
     {
-        newspaperOrganizer = new NewspaperOrganizer();
+        newspaperOrganizer = new LitteratureOrganizer();
     }
 
     /**
@@ -129,7 +129,7 @@ public class UserInterface
         System.out.println("Enter the issuenumber: ");
         int issueNumber = inputScanner.nextInt();
 
-        newspaperOrganizer.addNewspaper(name, issueNumber, date, numberOfPages);
+        LitteratureOrganizer.addNewspaper(name, issueNumber, date, numberOfPages);
     }
 
     /**
@@ -137,7 +137,7 @@ public class UserInterface
      */
     public void listAllNewspapers()
     {
-        Iterator<Newspaper> it = newspaperOrganizer.iterator();
+        Iterator<Newspaper> it = LitteratureOrganizer.iterator();
         if (!it.hasNext())
         {
             System.out.println("There are no newspapers in stock!");
@@ -164,7 +164,7 @@ public class UserInterface
         String searchString = inputScanner.nextLine();
         System.out.println();
 
-        Iterator<Newspaper> it = newspaperOrganizer.iterator();
+        Iterator<Newspaper> it = LitteratureOrganizer.iterator();
         while (it.hasNext())
         {
             Newspaper n = it.next();
