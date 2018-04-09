@@ -11,25 +11,22 @@ import java.util.ArrayList;
  */
 public class UserInterface
 {
-<<<<<<< HEAD
     private LitteratureOrganizer litteratureOrganizer;
-=======
     private LitteratureOrganizer newspaperOrganizer;
->>>>>>> 346ce008b4bcc076f68635164b133b1ec51621cf
     private String[] menuItems = {
             "1. List all litteratures",
             "2. Add new litterature",
             "3. Find a litterature by name",
             "4. For later use",
-        };
+    };
 
     public UserInterface()
     {
-<<<<<<< HEAD
+
         litteratureOrganizer = new LitteratureOrganizer();
-=======
+
         newspaperOrganizer = new LitteratureOrganizer();
->>>>>>> 346ce008b4bcc076f68635164b133b1ec51621cf
+
     }
 
     /**
@@ -124,7 +121,7 @@ public class UserInterface
     public void addLitterature()
     {
         Scanner inputScanner = new Scanner(System.in);
-        
+
         System.out.println("Enter the name: ");
         String name = inputScanner.nextLine();
 
@@ -137,11 +134,10 @@ public class UserInterface
         System.out.println("Enter the issuenumber: ");
         int issueNumber = inputScanner.nextInt();
 
-<<<<<<< HEAD
+        
         litteratureOrganizer.addlitterature(name, issueNumber, date, numberOfPages);
-=======
         LitteratureOrganizer.addNewspaper(name, issueNumber, date, numberOfPages);
->>>>>>> 346ce008b4bcc076f68635164b133b1ec51621cf
+        
     }
 
     /**
@@ -149,11 +145,10 @@ public class UserInterface
      */
     public void listAllLitteratures()
     {
-<<<<<<< HEAD
+        
         Iterator<Litterature> it = litteratureOrganizer.iterator();
-=======
         Iterator<Newspaper> it = LitteratureOrganizer.iterator();
->>>>>>> 346ce008b4bcc076f68635164b133b1ec51621cf
+        
         if (!it.hasNext())
         {
             System.out.println("There are no litterature in stock!");
@@ -175,16 +170,14 @@ public class UserInterface
     public void findLitteratureByName()
     {
         Scanner inputScanner = new Scanner(System.in);
-        
+
         System.out.println("Enter the name:");
         String searchString = inputScanner.nextLine();
         System.out.println();
 
-<<<<<<< HEAD
         Iterator<Litterature> it = litteratureOrganizer.iterator();
-=======
         Iterator<Newspaper> it = LitteratureOrganizer.iterator();
->>>>>>> 346ce008b4bcc076f68635164b133b1ec51621cf
+        
         while (it.hasNext())
         {
             Literature n = it.next();
