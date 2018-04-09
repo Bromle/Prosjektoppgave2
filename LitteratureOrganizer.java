@@ -1,14 +1,16 @@
-
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.InputMismatchException;
 /**
  * Write a description of class LitteratureOrganizer here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ *  * @author Geir Kvenseth, Fride frøland, Helene Rasmussen
+ * @version (09.04.2018)
  */
 public class LitteratureOrganizer
 {
-    // instance variables - replace the example below with your own
-    private int x;
+     // An Arraylist for storing objects of class Newspaper.
+    private ArrayList<Litterature> listOfLitterature;
 
     /**
      * Constructor for objects of class LitteratureOrganizer
@@ -16,18 +18,32 @@ public class LitteratureOrganizer
     public LitteratureOrganizer()
     {
         // initialise instance variables
-        x = 0;
+        this.listOfLitterature = new ArrayList<Litterature>();
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
+    public Iterator<Litterature> iterator()
     {
-        // put your code here
-        return x + y;
+        return listOfLitterature.iterator();
     }
+    
+    public int listOfLitteratureSize()
+    {
+        return this.listOfLitterature.size();
+    }
+    
+    /**
+     * adds litterature to the litteratureorganizer
+     * @param litter
+     */
+    public void addLitterature(String name, String date,
+                                int numberOfPages)
+    {
+        listOfLitterature.add(new Litterature(name, date, numberOfPages));
+    }
+    
+    public void removeLitterature(int index)
+    {
+        this.listOfLitterature.remove(index);
+    }
+    
 }
