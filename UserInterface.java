@@ -11,17 +11,22 @@ import java.util.ArrayList;
  */
 public class UserInterface
 {
+    private LitteratureOrganizer litteratureOrganizer;
     private LitteratureOrganizer newspaperOrganizer;
     private String[] menuItems = {
-            "1. List all newspapers",
-            "2. Add new newspaper",
-            "3. Find a newspaper by name",
+            "1. List all litteratures",
+            "2. Add new litterature",
+            "3. Find a litterature by name",
             "4. For later use",
-        };
+    };
 
     public UserInterface()
     {
+
+        litteratureOrganizer = new LitteratureOrganizer();
+
         newspaperOrganizer = new LitteratureOrganizer();
+
     }
 
     /**
@@ -42,15 +47,15 @@ public class UserInterface
                 switch (menuSelection) 
                 {
                     case 1:
-                    this.listAllNewspapers();
+                    this.listAllLitteratures();
                     break;
 
                     case 2:
-                    addNewspaper();
+                    addLitterature();
                     break;
 
                     case 3:
-                    this.findNewspaperByName();
+                    this.findLitteratureByName();
                     break;
 
                     case 5:
@@ -110,43 +115,49 @@ public class UserInterface
     }
 
     /**
-     * Adds a newspaper to the newspaperorganizer.
-     * @param newspaper The newspaper to add
+     * Adds a litterature to the litteratureorganizer.
+     * @param litterature The litterature to add
      */
-    public void addNewspaper()
+    public void addLitterature()
     {
         Scanner inputScanner = new Scanner(System.in);
-        
+
         System.out.println("Enter the name: ");
         String name = inputScanner.nextLine();
 
         System.out.println("Enter the date of publishing: ");
         String date = inputScanner.nextLine();
 
-        System.out.println("Enter the number of pages in the newpaper: ");
+        System.out.println("Enter the number of pages in the litterature: ");
         int numberOfPages = inputScanner.nextInt();
 
         System.out.println("Enter the issuenumber: ");
         int issueNumber = inputScanner.nextInt();
 
+        
+        litteratureOrganizer.addlitterature(name, issueNumber, date, numberOfPages);
         LitteratureOrganizer.addNewspaper(name, issueNumber, date, numberOfPages);
+        
     }
 
     /**
      * Lists all the products/literature in the register
      */
-    public void listAllNewspapers()
+    public void listAllLitteratures()
     {
+        
+        Iterator<Litterature> it = litteratureOrganizer.iterator();
         Iterator<Newspaper> it = LitteratureOrganizer.iterator();
+        
         if (!it.hasNext())
         {
-            System.out.println("There are no newspapers in stock!");
+            System.out.println("There are no litterature in stock!");
         }
         else
         {
-            System.out.println("Newspapers in stock are:");
+            System.out.println("Litteratures in stock are:");
             while(it.hasNext()){
-                Newspaper n = it.next();
+                Litterature n = it.next();
                 System.out.println(n.getName());
             }
         }
@@ -156,18 +167,20 @@ public class UserInterface
      * Find and return the newspaper with a name matching the parameter name.
      * @param name The name of the newspaper to search for.
      */
-    public void findNewspaperByName()
+    public void findLitteratureByName()
     {
         Scanner inputScanner = new Scanner(System.in);
-        
+
         System.out.println("Enter the name:");
         String searchString = inputScanner.nextLine();
         System.out.println();
 
+        Iterator<Litterature> it = litteratureOrganizer.iterator();
         Iterator<Newspaper> it = LitteratureOrganizer.iterator();
+        
         while (it.hasNext())
         {
-            Newspaper n = it.next();
+            Literature n = it.next();
             if (n.getName().equalsIgnoreCase(searchString))
             {
                 System.out.println(n.toString());
