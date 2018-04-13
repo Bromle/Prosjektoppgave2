@@ -34,8 +34,9 @@ public class Newspaper extends Litterature
         String returnString = super.getName();
         returnString += "\nDate: " + super.getDate();
         returnString += "\nNumber of pages: " + super.getNumberOfPages();
-        returnString += "\nPrice: " + super.getPrice;
+        returnString += "\nPrice: " + super.getPrice();
         returnString += "\nIssuenumber: " + issueNumber;
         returnString += "\nPublisher: " + publisher;
+        return returnString;
     }
 }

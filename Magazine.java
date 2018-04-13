@@ -25,7 +25,7 @@ public class Magazine extends Litterature
         String returnString = super.getName();
         returnString += "\nDate: " + super.getDate();
         returnString += "\nNumber of pages: " + super.getNumberOfPages();
-        returnString += "\nPrice: " + super.getPrice;
+        returnString += "\nPrice: " + super.getPrice();
         if(scientific = true) {
             returnString += "\nScientific magazine";
         }
