@@ -21,12 +21,12 @@ public class Newspaper extends Litterature
     }
 
     public Newspaper(String name, String date, int numberOfPages, 
-    int issueNumber, double price)
+    int issueNumber, String publisher, double price)
     {
         super(name, date, numberOfPages);
         setPrice(price);
         this.issueNumber = issueNumber;
-        this.publisher = 
+        this.publisher = publisher;
     }
 
     public String toString()
@@ -36,5 +36,6 @@ public class Newspaper extends Litterature
         returnString += "\nNumber of pages: " + super.getNumberOfPages();
         returnString += "\nPrice: " + super.getPrice;
         returnString += "\nIssuenumber: " + issueNumber;
+        returnString += "\nPublisher: " + publisher;
     }
 }

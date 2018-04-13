@@ -26,6 +26,12 @@ public class Magazine extends Litterature
         returnString += "\nDate: " + super.getDate();
         returnString += "\nNumber of pages: " + super.getNumberOfPages();
         returnString += "\nPrice: " + super.getPrice;
-        returnString += "\nIssuenumber: " + issueNumber;
+        if(scientific = true) {
+            returnString += "\nScientific magazine";
+        }
+        else if(tabloid = true){
+            returnString += "\nTabloid magazine";
+        }
+        return returnString;
     }
 }

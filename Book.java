@@ -24,6 +24,6 @@ public class Book extends Litterature
         returnString += "\nDate: " + super.getDate();
         returnString += "\nNumber of pages: " + super.getNumberOfPages();
         returnString += "\nPrice: " + super.getPrice;
-        returnString += "\nIssuenumber: " + issueNumber;
+        returnString += "\nIssuenumber: " + publisher;
     }
 }
