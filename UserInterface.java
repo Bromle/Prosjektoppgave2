@@ -132,7 +132,7 @@ public class UserInterface
         int issueNumber = inputScanner.nextInt();
 
         
-        LitteratureOrganizer.addLitterature(name, issueNumber, date, numberOfPages);
+        litteratureOrganizer.addLitterature(name, date, numberOfPages);
         
         
     }
