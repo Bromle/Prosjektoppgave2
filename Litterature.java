@@ -31,6 +31,11 @@ public class Litterature
         this.price = newPrice;
     }
     
+    public double getPrice()
+    {
+        return this.price;
+    }
+    
     /**
      * Returns the name.
      * @returns name The name of the Litterature.
