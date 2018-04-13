@@ -27,5 +27,6 @@ public class Newspaper extends Litterature
         setPrice(price);
         this.issueNumber = issueNumber;
     }
-
+    
+    
 }
