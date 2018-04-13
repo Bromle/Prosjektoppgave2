@@ -7,7 +7,7 @@
  */
 public class Book extends Litterature
 {
-        private final String publisher;
+    private final String publisher;
 
     /**
      * Constructor for objects of class Book
@@ -17,6 +17,4 @@ public class Book extends Litterature
         super(name, date, numberOfPages);
         this.publisher = publisher;
     }
-
-
 }
