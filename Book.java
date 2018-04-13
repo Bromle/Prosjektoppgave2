@@ -17,4 +17,13 @@ public class Book extends Litterature
         super(name, date, numberOfPages);
         this.publisher = publisher;
     }
+
+    public String toString()
+    {
+        String returnString = super.getName();
+        returnString += "\nDate: " + super.getDate();
+        returnString += "\nNumber of pages: " + super.getNumberOfPages();
+        returnString += "\nPrice: " + super.getPrice;
+        returnString += "\nIssuenumber: " + publisher;
+    }
 }

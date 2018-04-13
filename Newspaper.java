@@ -13,7 +13,7 @@ public class Newspaper extends Litterature
      * Constructor for objects of class Newspaper
      */
     public Newspaper(String name, String date, int numberOfPages, int issueNumber,
-                     String publisher)
+    String publisher)
     {
         super(name, date, numberOfPages);
         this.issueNumber = issueNumber;
@@ -21,12 +21,21 @@ public class Newspaper extends Litterature
     }
 
     public Newspaper(String name, String date, int numberOfPages, 
-                     int issueNumber, double price)
+    int issueNumber, String publisher, double price)
     {
         super(name, date, numberOfPages);
         setPrice(price);
         this.issueNumber = issueNumber;
+        this.publisher = publisher;
     }
-    
-    
+
+    public String toString()
+    {
+        String returnString = super.getName();
+        returnString += "\nDate: " + super.getDate();
+        returnString += "\nNumber of pages: " + super.getNumberOfPages();
+        returnString += "\nPrice: " + super.getPrice;
+        returnString += "\nIssuenumber: " + issueNumber;
+        returnString += "\nPublisher: " + publisher;
+    }
 }
