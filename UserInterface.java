@@ -12,7 +12,6 @@ import java.util.ArrayList;
 public class UserInterface
 {
     private LitteratureOrganizer litteratureOrganizer;
-    private LitteratureOrganizer newspaperOrganizer;
     private String[] menuItems = {
             "1. List all litteratures",
             "2. Add new litterature",
@@ -24,8 +23,6 @@ public class UserInterface
     {
 
         litteratureOrganizer = new LitteratureOrganizer();
-
-        newspaperOrganizer = new LitteratureOrganizer();
 
     }
 
@@ -135,8 +132,8 @@ public class UserInterface
         int issueNumber = inputScanner.nextInt();
 
         
-        litteratureOrganizer.addlitterature(name, issueNumber, date, numberOfPages);
-        LitteratureOrganizer.addNewspaper(name, issueNumber, date, numberOfPages);
+        LitteratureOrganizer.addLitterature(name, issueNumber, date, numberOfPages);
+        
         
     }
 
@@ -147,7 +144,6 @@ public class UserInterface
     {
         
         Iterator<Litterature> it = litteratureOrganizer.iterator();
-        Iterator<Newspaper> it = LitteratureOrganizer.iterator();
         
         if (!it.hasNext())
         {
@@ -176,11 +172,10 @@ public class UserInterface
         System.out.println();
 
         Iterator<Litterature> it = litteratureOrganizer.iterator();
-        Iterator<Newspaper> it = LitteratureOrganizer.iterator();
         
         while (it.hasNext())
         {
-            Literature n = it.next();
+            Litterature n = it.next();
             if (n.getName().equalsIgnoreCase(searchString))
             {
                 System.out.println(n.toString());
