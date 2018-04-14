@@ -5,33 +5,22 @@
  * @author (your name)
  * @version (a version number or a date)
  */
-public class Magazine extends Litterature
+public class Magazine extends Literature
 {
-    Boolean scientific;
-    Boolean tabloid;
-
     /**
      * Constructor for objects of class Magazine
      */
-    public Magazine(String name, String date, int numberOfPages)
+    public Magazine(String name, String date, String publisher, int numberOfPages)
     {
-        super(name, date, numberOfPages);
-        this.scientific = false;
-        this.tabloid = false;
+        super(name,  date,  publisher, numberOfPages);
     }
 
-    public String toString()
+    public String getData()
     {
         String returnString = super.getName();
         returnString += "\nDate: " + super.getDate();
         returnString += "\nNumber of pages: " + super.getNumberOfPages();
         returnString += "\nPrice: " + super.getPrice();
-        if(scientific = true) {
-            returnString += "\nScientific magazine";
-        }
-        else if(tabloid = true){
-            returnString += "\nTabloid magazine";
-        }
         return returnString;
     }
 }

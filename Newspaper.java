@@ -5,28 +5,25 @@
  * @author (your name)
  * @version (a version number or a date)
  */
-public class Newspaper extends Litterature
+public class Newspaper extends Literature
 {
     private final int issueNumber;
-    private final String publisher;
     /**
      * Constructor for objects of class Newspaper
      */
-    public Newspaper(String name, String date, int numberOfPages, int issueNumber,
-    String publisher)
+    public Newspaper(String name, String date, String publisher,
+    int numberOfPages, int issueNumber)
     {
-        super(name, date, numberOfPages);
+        super(name, date,  publisher, numberOfPages);
         this.issueNumber = issueNumber;
-        this.publisher = publisher;
     }
 
     public Newspaper(String name, String date, int numberOfPages, 
     int issueNumber, String publisher, double price)
     {
-        super(name, date, numberOfPages);
+        super(name, date, publisher, numberOfPages);
         setPrice(price);
         this.issueNumber = issueNumber;
-        this.publisher = publisher;
     }
 
     public String toString()
@@ -36,7 +33,7 @@ public class Newspaper extends Litterature
         returnString += "\nNumber of pages: " + super.getNumberOfPages();
         returnString += "\nPrice: " + super.getPrice();
         returnString += "\nIssuenumber: " + issueNumber;
-        returnString += "\nPublisher: " + publisher;
+        returnString += "\nPublisher: " + super.getPublisher();
         return returnString;
     }
 }

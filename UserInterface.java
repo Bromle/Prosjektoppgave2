@@ -11,19 +11,19 @@ import java.util.ArrayList;
  */
 public class UserInterface
 {
-    private LitteratureOrganizer litteratureOrganizer;
+    private LiteratureOrganizer literatureOrganizer;
     private String[] menuItems = {
-            "1. List all litteratures",
-            "2. Add new litterature",
-            "3. Find a litterature by name",
-            "4. For later use",
-    };
+            "1. List all literatures",
+            "2. Find a literature by name",
+            "3. Add Newspaper",
+            "4. Add Book",
+            "5. Add Magazine",
+            "6. Remove Literature by name",
+        };
 
     public UserInterface()
     {
-
-        litteratureOrganizer = new LitteratureOrganizer();
-
+        literatureOrganizer = new LiteratureOrganizer();
     }
 
     /**
@@ -44,18 +44,30 @@ public class UserInterface
                 switch (menuSelection) 
                 {
                     case 1:
-                    this.listAllLitteratures();
+                    this.listAllLiteratures();
                     break;
 
                     case 2:
-                    addLitterature();
+                    this.printLiteratureByName();
                     break;
 
                     case 3:
-                    this.findLitteratureByName();
+                    addNewspaper();
+                    break;
+
+                    case 4:
+                    addBook();
                     break;
 
                     case 5:
+                    addMagazine();
+                    break;
+
+                    case 6:
+                    removeLiteratureByName();
+                    break;
+
+                    case 7:
                     System.out.println("\nThank you for using Application v0.1. Bye!\n");
                     quit = true;
                     break;
@@ -111,49 +123,93 @@ public class UserInterface
         return menuSelection;
     }
 
-    /**
-     * Adds a litterature to the litteratureorganizer.
-     * @param litterature The litterature to add
-     */
-    public void addLitterature()
+    private void addNewspaper()
     {
         Scanner inputScanner = new Scanner(System.in);
 
-        System.out.println("Enter the name: ");
+        System.out.println("Enter the Name: ");
         String name = inputScanner.nextLine();
 
-        System.out.println("Enter the date of publishing: ");
+        System.out.println("Enter the date: ");
         String date = inputScanner.nextLine();
 
-        System.out.println("Enter the number of pages in the litterature: ");
+        System.out.println("Enter the publisher: ");
+        String publisher = inputScanner.nextLine();
+
+        System.out.println("Enter the number of pages: ");
         int numberOfPages = inputScanner.nextInt();
 
         System.out.println("Enter the issuenumber: ");
         int issueNumber = inputScanner.nextInt();
 
-        
-        litteratureOrganizer.addLitterature(name, date, numberOfPages);
-        
-        
+        Literature newspaper = new Newspaper(name, date, publisher, numberOfPages, issueNumber);
+        literatureOrganizer.addLiterature(newspaper);
+    }
+
+    private void addBook()
+    {
+        Scanner inputScanner = new Scanner(System.in);
+
+        System.out.println("Enter the Name: ");
+        String name = inputScanner.nextLine();
+
+        System.out.println("Enter the date: ");
+        String date = inputScanner.nextLine();
+
+        System.out.println("Enter the publisher: ");
+        String publisher = inputScanner.nextLine();
+
+        System.out.println("Enter the number of pages: ");
+        int numberOfPages = inputScanner.nextInt();
+
+        inputScanner = new Scanner(System.in);
+        System.out.println("Enter the author: ");
+        String author = inputScanner.nextLine();
+
+        Literature book = new Book(name, date, publisher, numberOfPages, author);
+        literatureOrganizer.addLiterature(book);
+    }
+
+    private void addMagazine()
+    {
+        Scanner inputScanner = new Scanner(System.in);
+
+        System.out.println("Enter the Name: ");
+        String name = inputScanner.nextLine();
+
+        System.out.println("Enter the date: ");
+        String date = inputScanner.nextLine();
+
+        System.out.println("Enter the publisher: ");
+        String publisher = inputScanner.nextLine();
+
+        System.out.println("Enter the number of pages: ");
+        int numberOfPages = inputScanner.nextInt();
+
+        System.out.println("Enter the price: ");
+        double price = inputScanner.nextDouble();
+
+        Literature magazine = new Magazine(name, date, publisher, numberOfPages);
+        literatureOrganizer.addLiterature(magazine);
     }
 
     /**
      * Lists all the products/literature in the register
      */
-    public void listAllLitteratures()
+    public void listAllLiteratures()
     {
-        
-        Iterator<Litterature> it = litteratureOrganizer.iterator();
-        
+
+        Iterator<Literature> it = literatureOrganizer.iterator();
+
         if (!it.hasNext())
         {
-            System.out.println("There are no litterature in stock!");
+            System.out.println("There are no literature in stock!");
         }
         else
         {
-            System.out.println("Litteratures in stock are:");
+            System.out.println("Literatures in stock are:");
             while(it.hasNext()){
-                Litterature n = it.next();
+                Literature n = it.next();
                 System.out.println(n.getName());
             }
         }
@@ -163,7 +219,7 @@ public class UserInterface
      * Find and return the newspaper with a name matching the parameter name.
      * @param name The name of the newspaper to search for.
      */
-    public void findLitteratureByName()
+    private void printLiteratureByName()
     {
         Scanner inputScanner = new Scanner(System.in);
 
@@ -171,15 +227,34 @@ public class UserInterface
         String searchString = inputScanner.nextLine();
         System.out.println();
 
-        Iterator<Litterature> it = litteratureOrganizer.iterator();
-        
-        while (it.hasNext())
-        {
-            Litterature n = it.next();
-            if (n.getName().equalsIgnoreCase(searchString))
-            {
-                System.out.println(n.toString());
-            }
+        Literature foundLiterature = literatureOrganizer.findLiteratureByName(searchString);
+        if(foundLiterature != null){
+            System.out.println(foundLiterature.getName());
+        }
+        else{
+            System.out.println("No litterature found by name: " + searchString);
+        }
+    }
+
+    private void removeLiteratureByName()
+    {
+        Scanner inputScanner = new Scanner(System.in);
+
+        System.out.println("Enter the name:");
+        String searchString = inputScanner.nextLine();
+        System.out.println();
+
+        Literature foundLiterature = literatureOrganizer.findLiteratureByName(searchString);
+        if(foundLiterature != null){
+            literatureOrganizer.removeLiteratureByName(foundLiterature);
+        }
+        else{
+            System.out.println("No litterature found by name: " + searchString);
         }
     }
 }
+
+
+
+
+

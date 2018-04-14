@@ -1,27 +1,30 @@
 
 /**
- * Write a description of class Litterature here.
+ * Write a description of class Literature here.
  *
  * @author (your name)
  * @version (a version number or a date)
  */
-public class Litterature
+public class Literature
 {
     private final String name;
     private final String date;
+    private final String publisher;
     private final int numberOfPages;
     private double price;
 
     /**
-     * Constructor for objects of class Litterature
-     * @param name The litterature name.
+     * Constructor for objects of class Literature
+     * @param name The literature name.
      * @param dateAndYear Date and year published.
      * @param numberOfPages Number of pages in the newspaper.
      */
-    public Litterature(String name, String date, int numberOfPages)
+    public Literature(String name, String date, String publisher,
+                      int numberOfPages)
     {
         this.name = name;
         this.date = date;
+        this.publisher = publisher;
         this.numberOfPages = numberOfPages;
         this.price = 0;
     }
@@ -30,15 +33,20 @@ public class Litterature
     {
         this.price = newPrice;
     }
-    
+
     public double getPrice()
     {
         return this.price;
     }
+
+    public String getPublisher()
+    {
+        return this.publisher;
+    }
     
     /**
      * Returns the name.
-     * @returns name The name of the Litterature.
+     * @returns name The name of the Literature.
      */
     public String getName()
     {
@@ -47,7 +55,7 @@ public class Litterature
 
     /**
      * Return date.
-     * @return date The Litterature date.
+     * @return date The Literature date.
      */
     public String getDate()
     {
@@ -55,7 +63,7 @@ public class Litterature
     }
 
     /**
-     * Return number of pages of the Litterature.
+     * Return number of pages of the Literature.
      * @return numberOfPages The number of pages.
      */
     public int getNumberOfPages()
