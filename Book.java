@@ -1,15 +1,20 @@
 
 /**
- * Write a description of class Book here.
+ * Store details of a book.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Geir Kvenseth, Fride frøland, Helene Rasmussen
+ * @version (09.04.2018)
  */
 public class Book extends Literature
 {
     private final String author;
     /**
-     * Constructor for objects of class Book
+     * Create a Book.  
+     * @param name The book name.
+     * @param date Date it is published.
+     * @param publisher the publisher of the book 
+     * @param numberOfPages Number of pages in the.
+     * @param author the author of the book
      */
     public Book(String name, String date, String publisher,
                       int numberOfPages, String author)
@@ -18,6 +23,10 @@ public class Book extends Literature
         this.author = author;
     }
 
+     /**
+     * Return the literature data 
+     * @return the literature data
+     */
     public String getData()
     {
         String returnString = super.getName();

@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.InputMismatchException;
 /**
- * Write a description of class LiteratureOrganizer here.
+ * Represents a collections of Literature.
  *
  *  * @author Geir Kvenseth, Fride frøland, Helene Rasmussen
  * @version (09.04.2018)
@@ -26,6 +26,10 @@ public class LiteratureOrganizer
         return listOfLiterature.iterator();
     }
 
+    /**
+     * Returns the size of the literature list.
+     * @return the size of the literature list
+     */
     public int listOfLiteratureSize()
     {
         return this.listOfLiterature.size();
@@ -33,18 +37,28 @@ public class LiteratureOrganizer
 
     /**
      * adds literature to the literatureorganizer
-     * @param litter
+     * @param literature The literatur to add
      */
     public void addLiterature(Literature literature)
     {
         listOfLiterature.add(literature);
     }
 
+    /**
+     * Removes a literatur from the list by name
+     * @param literature the literatur to remove
+     */
     public void removeLiteratureByName(Literature literature)
     {
         this.listOfLiterature.remove(literature);
     }
 
+    /**
+     * Finds literature from the list by name
+     * @param name the name to find
+     * Returns the found literature
+     * @return the found literature.
+     */
     public Literature findLiteratureByName(String name)
     {
         Iterator<Literature> it = this.listOfLiterature.iterator();

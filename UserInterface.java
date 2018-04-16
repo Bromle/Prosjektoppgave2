@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.ArrayList;
 
 /**
- * Write a description of class UserInterface here.
+ * Represents the UserInterface.
  *
  * @author Geir Kvenseth, Fride frøland, Helene Rasmussen
  * @version (12.02.2018)

@@ -1,9 +1,9 @@
 
 /**
- * Write a description of class Literature here.
+ * A class representing shared characteristics of literature.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Geir Kvenseth, Fride frøland, Helene Rasmussen
+ * @version (09.04.2018
  */
 public class Literature
 {
@@ -16,8 +16,8 @@ public class Literature
     /**
      * Constructor for objects of class Literature
      * @param name The literature name.
-     * @param dateAndYear Date and year published.
-     * @param numberOfPages Number of pages in the newspaper.
+     * @param date Date the literature is published.
+     * @param numberOfPages Number of pages.
      */
     public Literature(String name, String date, String publisher,
                       int numberOfPages)
@@ -28,24 +28,35 @@ public class Literature
         this.numberOfPages = numberOfPages;
         this.price = 0;
     }
-
+    
+    /**
+     * Sets the price of the literature 
+     */
     public void setPrice(double newPrice)
     {
         this.price = newPrice;
     }
-
+    
+    /**
+     * Return the price of the literature
+     * @return the price of the literarure
+     */
     public double getPrice()
     {
         return this.price;
     }
 
+    /**
+     * Return the publisher of the literature 
+     * @return the publisher of the literature
+     */
     public String getPublisher()
     {
         return this.publisher;
     }
     
     /**
-     * Returns the name.
+     * Returns the name of the literature.
      * @returns name The name of the Literature.
      */
     public String getName()
@@ -70,13 +81,21 @@ public class Literature
     {
         return this.numberOfPages;
     }
-
+    
+    /**
+     * Return the information of name, date and number of pages
+     * @return the information of name, date and number of pages
+     */
     public String getInfoAsString()
     {
         return getName() + getDate() + getNumberOfPages();
     }
 
-    public String toString()
+    /**
+     * Return the literature data 
+     * @return the literature data
+     */
+    public String getData()
     {
         String returnString = name;
         returnString += "\nDate: " + date;

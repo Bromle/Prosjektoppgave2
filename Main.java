@@ -1,8 +1,10 @@
 
 /**
- * Represents a collections of newspapers.
+ * The Main-class of the application. This class only holds the main()-method
+ * to start the application 
+ * 
  * @author Geir Kvenseth, Fride frøland, Helene Rasmussen
- * @version (12.02.2018)
+ * @version (09.04.2018)
  */
 public class Main
 {
